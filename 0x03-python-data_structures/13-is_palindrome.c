@@ -26,65 +26,33 @@ listint_t *rev(listint_t **head)
 }
 
 /**
- * free_ptr - frees malloced memory
- * @head: pointer to the memory to be freed
- */
-void free_ptr(listint_t *head)
-{
-	listint_t *ptr;
-
-	while (head != NULL)
-	{
-		ptr = head->next;
-		free(head);
-		head = ptr;
-	}
-}
-/**
  * is_palindrome - checks whether a linked list is a palindrome or not
  * @head: pointer to the head of the linked list
  * Return: 0 if not palindrome, 1 if palindrome
  */
 int is_palindrome(listint_t **head)
 {
-	int i;
-	listint_t *head_ptr, *new, *new_ptr;
+	int i, len = 0;
+	listint_t *new, *temp;
 
-	if (head == NULL || (*head)->next == NULL)
-		return (1);
-
-	head_ptr = rev(head);
-	new = malloc(sizeof(listint_t));
-	new_ptr = new;
-	for (i = 0; *head != NULL; i++)
+	temp = new = *head;
+	while (temp != NULL)
 	{
-		new->n = (*head)->n;
-		*head = (*head)->next;
-		if (*head != NULL)
-		{
-			new->next = malloc(sizeof(listint_t));
-			new = new->next;
-		}
-		else
-			new->next = NULL;
+		len++;
+		temp = temp->next;
 	}
-	*head = head_ptr;
-	head_ptr = rev(head);
+	temp = *head;
+	for (i = 0; i < len / 2; i++)
+		temp = temp->next;
 
-	new = new_ptr;
-	while (*head != NULL)
+	rev(&temp);
+
+	while (temp != NULL)
 	{
-		if ((*head)->n != new_ptr->n)
-		{
-			*head = head_ptr;
-			free_ptr(new);
+		if (new->n != temp->n)
 			return (0);
-		}
-		*head = (*head)->next;
-		new_ptr = new_ptr->next;
+		new = new->next;
+		temp = temp->next;
 	}
-	*head = head_ptr;
-	free_ptr(new);
-
 	return (1);
 }
