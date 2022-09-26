@@ -1,6 +1,5 @@
 #include "lists.h"
 
-void free_ptr(listint_t *head);
 /**
  * rev - reverses a linked list
  * @head: pointer to the first item of the list
