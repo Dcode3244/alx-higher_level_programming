@@ -1,5 +1,6 @@
 #include "lists.h"
 
+void free_ptr(listint_t *head);
 /**
  * rev - reverses a linked list
  * @head: pointer to the first item of the list
@@ -25,6 +26,21 @@ listint_t *rev(listint_t **head)
 }
 
 /**
+ * free_ptr - frees malloced memory
+ * @head: pointer to the memory to be freed
+ */
+void free_ptr(listint_t *head)
+{
+	listint_t *ptr;
+
+	while (head != NULL)
+	{
+		ptr = head->next;
+		free(head);
+		head = ptr;
+	}
+}
+/**
  * is_palindrome - checks whether a linked list is a palindrome or not
  * @head: pointer to the head of the linked list
  * Return: 0 if not palindrome, 1 if palindrome
@@ -32,9 +48,9 @@ listint_t *rev(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	int i;
-	listint_t *ptr, *new, *new_ptr;
+	listint_t *head_ptr, *new, *new_ptr;
 
-	ptr = rev(head);
+	head_ptr = rev(head);
 	new = malloc(sizeof(listint_t));
 	new_ptr = new;
 	for (i = 0; *head != NULL; i++)
@@ -49,25 +65,23 @@ int is_palindrome(listint_t **head)
 		else
 			new->next = NULL;
 	}
-	*head = ptr;
-	rev(head);
+	*head = head_ptr;
+	head_ptr = rev(head);
 
 	new = new_ptr;
 	while (*head != NULL)
 	{
 		if ((*head)->n != new_ptr->n)
+		{
+			*head = head_ptr;
+			free_ptr(new);
 			return (0);
+		}
 		*head = (*head)->next;
 		new_ptr = new_ptr->next;
 	}
-
-	new_ptr = new;
-	while (new != NULL)
-	{
-		new_ptr = new_ptr->next;
-		free(new);
-		new = new_ptr;
-	}
+	*head = head_ptr;
+	free_ptr(new);
 
 	return (1);
 }
