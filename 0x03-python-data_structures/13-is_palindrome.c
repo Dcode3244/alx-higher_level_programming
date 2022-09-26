@@ -32,7 +32,7 @@ listint_t *rev(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	int i, len = 0;
-	listint_t *new, *temp;
+	listint_t *new, *temp, *reverse;
 
 	temp = new = *head;
 	while (temp != NULL)
@@ -44,7 +44,7 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < len / 2; i++)
 		temp = temp->next;
 
-	rev(&temp);
+	reverse = rev(&temp);
 
 	while (temp != NULL)
 	{
@@ -53,5 +53,7 @@ int is_palindrome(listint_t **head)
 		new = new->next;
 		temp = temp->next;
 	}
+
+	rev(&reverse);
 	return (1);
 }
