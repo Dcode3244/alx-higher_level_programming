@@ -1,34 +1,54 @@
 #include "lists.h"
 
 /**
- * is_palindrome - checks if a singly linked list is a palindrome
- * @head: pointer to the first linked list item
- * Return: 0 if it is not a palindrome, 1 if it is
+ * rev - reverses a linked list
+ * @head: pointer to the first item of the list
+ * Return: pointer to the head of the reversed list
  */
 
+listint_t *rev(listint_t **head)
+{
+	listint_t *temp, *next;
+
+	temp = *head;
+	*head = NULL;
+
+	while (temp != NULL)
+	{
+		next = temp->next;
+		temp->next = *head;
+		*head = temp;
+		temp = next;
+	}
+
+	return (*head);
+}
+
+/**
+ * is_palindrome - checks whether a linked list is a palindrome or not
+ * @head: pointer to the head of the linked list
+ * Return: 0 if not palindrome, 1 if palindrome
+ */
 int is_palindrome(listint_t **head)
 {
-	int i, j = 0, k;
-	listint_t *front, *back;
+	int i, nums[40];
+	listint_t *ptr;
 
-	front = back = *head;
-	while ((*head) != NULL)
+	ptr = rev(head);
+
+	for (i = 0; *head != NULL; i++)
 	{
-		j++;
+		nums[i] = (*head)->n;
 		*head = (*head)->next;
 	}
-	*head = front;
+	*head = ptr;
+	rev(head);
 
-	for (i = 1; i <= j; j--, i++)
+	for (i = 0; *head != NULL; i++)
 	{
-		back = *head;
-		for (k = 1; k < j; k++)
-			back = back->next;
-
-		if (front->n != back->n)
+		if ((*head)->n != nums[i])
 			return (0);
-
-		front = front->next;
+		*head = (*head)->next;
 	}
 	return (1);
 }
