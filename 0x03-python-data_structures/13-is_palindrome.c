@@ -31,7 +31,7 @@ listint_t *rev(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	int i, nums[40];
+	int i, nums[60];
 	listint_t *ptr;
 
 	ptr = rev(head);
