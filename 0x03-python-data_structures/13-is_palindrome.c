@@ -50,6 +50,9 @@ int is_palindrome(listint_t **head)
 	int i;
 	listint_t *head_ptr, *new, *new_ptr;
 
+	if (head == NULL || *head == NULL)
+		return (1);
+
 	head_ptr = rev(head);
 	new = malloc(sizeof(listint_t));
 	new_ptr = new;
