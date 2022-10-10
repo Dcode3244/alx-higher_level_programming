@@ -8,6 +8,6 @@ def safe_print_list(my_list=[], x=0):
             print(my_list[i], end="")
         print()
         return list_len
-    except IndexError:
+    except (IndexError, TypeError):
         print()
         return list_len - 1
