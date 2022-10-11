@@ -30,11 +30,11 @@ class Square:
         Args:
             value (int): size of the new square
         """
-        self.__size = value
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        elif self.__size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
+        self.__size = value
 
     @property
     def position(self):
