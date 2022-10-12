@@ -85,7 +85,9 @@ class SinglyLinkedList:
         """ defines print() value of SinglyLinkedList """
 
         temp = self.__head
-        while temp.next_node is not None:
-            print(str(temp.data))
-            temp = temp.next_node
-        return (str(temp.data))
+        if temp is not None:
+            while temp.next_node is not None:
+                print(str(temp.data))
+                temp = temp.next_node
+            return (str(temp.data))
+        return ""
