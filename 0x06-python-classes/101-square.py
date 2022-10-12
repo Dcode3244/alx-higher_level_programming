@@ -89,6 +89,6 @@ class Square:
                     val.append(" ")
                 for j in range(self.__size):
                     val.append("#")
-                if i != self.size - 1:
+                if i != self.__size - 1:
                     val.append("\n")
         return ("".join(val))
