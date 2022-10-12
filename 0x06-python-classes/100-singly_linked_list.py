@@ -2,6 +2,7 @@
 
 class Node:
     """ defines a node of singly linked list """
+
     def __init__(self, data, next_node=None):
         """ initializes the node
 
@@ -42,6 +43,7 @@ class Node:
 
 
 class SinglyLinkedList:
+    """ defines a singly linked list class """
     def __init__(self):
         """ initializes a singly linked list node """
 
