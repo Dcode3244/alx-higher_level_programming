@@ -77,18 +77,14 @@ class Square:
 
     def __str__(self):
         """ the print() representation of a Square class """
-        val = []
-        if self.__size == 0:
-            val.append("\n")
-            return val
-        else:
+        if self.__size != 0:
             for i in range(self.__position[1]):
-                val.append("\n")
-            for i in range(self.__size):
-                for k in range(self.__position[0]):
-                    val.append(" ")
-                for j in range(self.__size):
-                    val.append("#")
-                if i != self.__size - 1:
-                    val.append("\n")
-        return ("".join(val))
+                print("")
+        for i in range(self.__size):
+            for k in range(self.__position[0]):
+                print(" ", end="")
+            for j in range(self.__size):
+                print("#", end="")
+            if i != self.__size - 1:
+                print("")
+        return ("")
