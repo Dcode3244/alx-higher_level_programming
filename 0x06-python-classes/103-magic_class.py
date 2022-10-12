@@ -8,12 +8,14 @@ import math
 
 class MagicClass:
     """ a class representing a circle """
+
     def __init__(self, radius=0):
         """ initialize the MagicClass
 
         Arg:
             radius (int or float): radius of the circle
         """
+        self.__radius = 0
         if type(radius) is not int or type(radius) is not float:
             raise TypeError("radius must be a number")
         else:
