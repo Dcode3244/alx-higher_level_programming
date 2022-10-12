@@ -79,7 +79,8 @@ class Square:
         """ the print() representation of a Square class """
         val = []
         if self.__size == 0:
-            return ("\n")
+            val.append("\n")
+            return val
         else:
             for i in range(self.__position[1]):
                 val.append("\n")
