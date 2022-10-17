@@ -69,6 +69,8 @@ class Rectangle:
         return (2 * (self.width + self.height))
 
     def __str__(self):
+        """ print representation of the class Rectangle """
+
         for h in range(self.height):
             for w in range(self.width):
                 print("#", end="")
