@@ -63,7 +63,7 @@ class Solution:
             for row in soln:
                 for col in row:
                     if col == 'Q':
-                        final[sol].append([i + 1, c])
+                        final[sol].append([i, c])
                         c = 0
                         break
                     c += 1
