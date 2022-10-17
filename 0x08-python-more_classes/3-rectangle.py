@@ -71,9 +71,10 @@ class Rectangle:
     def __str__(self):
         """ print representation of the class Rectangle """
 
-        for h in range(self.height):
-            for w in range(self.width):
-                print("#", end="")
-            if h < self.height - 1:
-                print("")
+        if self.height > 0 and self.width > 0:
+            for h in range(self.height):
+                for w in range(self.width):
+                    print("#", end="")
+                if h < self.height - 1:
+                    print("")
         return ("")
