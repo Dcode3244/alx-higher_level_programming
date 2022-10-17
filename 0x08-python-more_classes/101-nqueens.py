@@ -72,6 +72,7 @@ class Solution:
 
         for i in final:
             print(i)
+            print(",")
 
         return res
 
