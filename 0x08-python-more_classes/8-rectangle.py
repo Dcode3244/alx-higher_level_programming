@@ -73,7 +73,8 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         return (2 * (self.width + self.height))
-
+ 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
