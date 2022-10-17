@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" prints a solution for nqueens puzzle """
+"""
+prints a solution for nqueens puzzle
+
+"""
 
 
 import sys
@@ -23,6 +26,13 @@ class Solution:
     """ a class for the solution of n queens puzzle """
 
     def solve(self, n: int):
+        """
+        a method that checks solutions
+
+        Args:
+            n (int): size of the chessboard
+        """
+
         col = set()
         posDiag = set()
         negDiag = set()
@@ -31,6 +41,9 @@ class Solution:
         board = [["."] * n for i in range(n)]
 
         def backtrack(r):
+            """
+                checks for attack recursively
+            """
             if r == n:
                 copy = ["".join(row) for row in board]
                 res.append(copy)
