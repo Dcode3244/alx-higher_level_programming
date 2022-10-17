@@ -87,7 +87,7 @@ class Rectangle:
         return rect_2
 
     @classmethod
-    def ssquare(cls, size):
+    def square(cls, size):
         return cls(width=size, height=size)
 
     def __str__(self):
