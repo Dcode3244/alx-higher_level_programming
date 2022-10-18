@@ -1,0 +1,52 @@
+===========================
+How to use 0-add_integer.py
+===========================
+
+``add_integer(a, b=98)`` returns the sum of its arguments
+
+Numbers
+=======
+
+Integers
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(2, 3)
+	5
+	>>> add_integer(-2)
+	96
+
+floats
+::
+	>>> add_integer(4.2, 2)
+	6
+	>>> add_integer(3.3)
+	101
+
+Non-Numbers
+===========
+
+strings
+::
+	>>> add_integer('as', 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+	>>> add_integer(3, 'as')
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+	>>> add_integer('aa', 'bb')
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+list
+::
+	>>> add_integer(['a', 3], 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+dict
+::
+	>>> add_integer({'a' : 'bb'}, 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
