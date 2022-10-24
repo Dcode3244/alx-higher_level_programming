@@ -57,3 +57,25 @@ Instantiation
 	>>> bg.area("test")
 	Traceback (most recent call last):
 	TypeError: area() takes 1 positional argument but 2 were given
+
+::
+    	>>> bg.integer_validator("test", True)
+   	Traceback (most recent call last):
+    	TypeError: test must be an integer
+
+::
+	>>> bg.integer_validator("test", (1, 3))
+    	Traceback (most recent call last):
+    	TypeError: test must be an integer
+
+::
+
+	>>> bg.integer_validator("test", {})
+    	Traceback (most recent call last):
+    	TypeError: test must be an integer
+
+::
+
+	>>> bg.integer_validator("test", [1, 3, 4])
+    	Traceback (most recent call last):
+    	TypeError: test must be an integer
