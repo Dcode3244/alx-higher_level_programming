@@ -101,6 +101,12 @@ Instantiation
 
 ::
 
+    	>>> bg.integer_validator("test", None)
+    	Traceback (most recent call last):
+    	TypeError: test must be an integer
+
+::
+
     	>>> bg.integer_validator("invalid int", -1)
     	Traceback (most recent call last):
     	ValueError: invalid int must be greater than 0
@@ -110,3 +116,8 @@ Instantiation
     	>>> bg.integer_validator("invalid int", 0)
     	Traceback (most recent call last):
     	ValueError: invalid int must be greater than 0
+
+::
+    	>>> bg.integer_validator(123, (1, 2, 3))
+    	Traceback (most recent call last):
+    	TypeError: 123 must be an integer
