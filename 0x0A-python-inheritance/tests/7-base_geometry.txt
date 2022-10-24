@@ -45,6 +45,9 @@ Instantiation
     	>>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
 	<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at 0x...>>
 
+	>>> bg.integer_validator("valid number", 1)
+
+
 ::
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator()
@@ -73,6 +76,11 @@ Instantiation
     	>>> bg.integer_validator("test", True)
    	Traceback (most recent call last):
     	TypeError: test must be an integer
+
+
+    	>>> bg.integer_validator("invalid number", "number")
+    	Traceback (most recent call last):
+    	TypeError: invalid number must be an integer
 
 ::
 	>>> bg.integer_validator("test", (1, 3))
