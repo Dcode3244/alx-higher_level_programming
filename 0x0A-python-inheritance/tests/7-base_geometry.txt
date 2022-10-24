@@ -1,0 +1,40 @@
+7-base_geometry.py
+==================
+
+Instantiation
+=============
+
+::
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> type(bg)
+	<class '7-base_geometry.BaseGeometry'>
+	>>> print(bg) # doctest: +ELLIPSIS
+	<7-base_geometry.BaseGeometry object at 0x...>
+
+::
+
+	>>> bg = BaseGeometry(None)
+	Traceback (most recent call last):
+	TypeError: BaseGeometry() takes no arguments
+
+::
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("length", 3)
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("length", "a")
+	Traceback (most recent call last):
+	TypeError: length must be an integer
+
+::	
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("length", -3)
+	Traceback (most recent call last):
+	ValueError: length must be greater than 0
+
+::	
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
