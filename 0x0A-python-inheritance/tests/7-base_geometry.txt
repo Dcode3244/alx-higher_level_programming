@@ -121,3 +121,9 @@ Methods
     	>>> bg.integer_validator(123, (1, 2, 3))
     	Traceback (most recent call last):
     	TypeError: 123 must be an integer
+
+::
+    	>>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
+    	Traceback (most recent call last):
+    	TypeError: integer_validator() missing 1 required positional argument: 'value'
+			
