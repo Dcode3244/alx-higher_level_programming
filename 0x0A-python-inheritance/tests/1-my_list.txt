@@ -90,6 +90,20 @@ use
 	[]
 
 ::
+	>>> my_list = MyList()
+	>>> my_list.append("z")
+	>>> my_list.append("d")
+	>>> my_list.append("h")
+	>>> my_list.append("b")
+	>>> my_list.append("a")
+	>>> my_list.print_sorted()
+	['a', 'b', 'd', 'h', 'z']
+
+	>>> print(my_list)
+	['z', 'd', 'h', 'b', 'a']
+
+
+::
 	>>> my_list = MyList(["a", "b", "c", 1, 2])
 	>>> my_list.print_sorted()
 	Traceback (most recent call last):
