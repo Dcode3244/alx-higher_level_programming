@@ -35,6 +35,14 @@ instantiation
 	[[1, 2, 3], [1, 2, 3]]
 
 
+
+::
+
+	>>> my_list = MyList(1, 3, 4)
+	Traceback (most recent call last):
+	TypeError: list expected at most 1 argument, got 3
+
+
 use
 ===
 ::
@@ -55,7 +63,7 @@ use
 	>>> print(my_list)
 	[1, 2]
 
-::
+
 
 `print_sorted`
 ==============
@@ -65,3 +73,11 @@ use
 	[1, 4, 5, 2, 6]
 	>>> my_list.print_sorted()
 	[1, 2, 4, 5, 6]
+
+::
+	>>> my_list = MyList([1, 4, 5, 2, 6])
+	>>> print(my_list)
+	[1, 4, 5, 2, 6]
+	>>> my_list.print_sorted(1)
+	Traceback (most recent call last):
+	TypeError: print_sorted() takes 1 positional argument but 2 were given
