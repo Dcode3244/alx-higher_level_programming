@@ -2,7 +2,7 @@
 """ defines a object class checking function """
 
 
-def is_same_class(obj, a_class):
+def is_kind_of_class(obj, a_class):
     """ checks if an obj is exactly an instance of the specified class
 
     Args:
