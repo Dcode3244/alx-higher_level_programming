@@ -40,13 +40,24 @@ Instantiation
 	Exception: area() is not implemented
 
 ::
+
+    	>>> bg = BaseGeometry()
+    	>>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+	<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at 0x...>>
+
+::
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ::
-	
+
+    	>>> print(bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+    	<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry 
+    	object at...>>
+
+
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("test")
 	Traceback (most recent call last):
@@ -79,3 +90,15 @@ Instantiation
 	>>> bg.integer_validator("test", [1, 3, 4])
     	Traceback (most recent call last):
     	TypeError: test must be an integer
+
+::
+
+    	>>> bg.integer_validator("invalid int", -1)
+    	Traceback (most recent call last):
+    	ValueError: invalid int must be greater than 0
+
+::
+
+    	>>> bg.integer_validator("invalid int", 0)
+    	Traceback (most recent call last):
+    	ValueError: invalid int must be greater than 0
