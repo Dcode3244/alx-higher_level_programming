@@ -12,8 +12,9 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 new = []
 for i in range(1, len(sys.argv)):
     new.append(sys.argv[i])
-
-save_to_json_file(new, "add_item.json")
-txt = load_from_json_file("add_item.json")
-with open("add_item.json", "a", encoding="utf-8") as f:
-    f.write("\n")
+try:
+    txt = load_from_json_file("add_item.json")
+except FileNotFoundError:
+    txt = []
+txt = txt + new
+save_to_json_file(txt, "add_item.json")
