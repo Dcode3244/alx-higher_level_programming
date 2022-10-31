@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ defines a class Base """
 import json
+import csv
 
 
 class Base:
@@ -69,4 +70,39 @@ class Base:
             return instances
 
         except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ saves csv serialization of list_objs to file """
+        fname = cls.__name__ + ".csv"
+
+        with open(fname, "w", encoding="utf-8") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldNames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldNames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fieldNames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ returns list of classes deserialized from csv file """
+        try:
+            fname = cls.__name__ + ".csv"
+            with open(fname, "r", encoding="utf-8") as f:
+                if cls.__name__ == "Rectangle":
+                    fieldNames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldNames = ["id", "size", "x", "y"]
+                dict_list = csv.DictReader(f, fieldnames=fieldNames)
+                dict_list = [dict([key, int(val)] for key, val
+                                  in d.items()) for d in dict_list]
+                return [cls.create(**d) for d in dict_list]
+
+        except IOError:
             return []
