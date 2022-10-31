@@ -41,5 +41,5 @@ class Square(Rectangle):
         """ print representation of the square instance """
         ret1 = "[{}] ({})".format(self.__class__.__name__, self.id)
         ret2 = " {}/{}".format(self.x, self.y)
-        ret3 = " = {}".format(self.width)
+        ret3 = " - {}".format(self.width)
         return ret1 + ret2 + ret3
