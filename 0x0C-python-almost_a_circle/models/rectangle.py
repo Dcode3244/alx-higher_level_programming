@@ -106,5 +106,5 @@ class Rectangle(Base):
 
         ret1 = "[{}] ({})".format(self.__class__.__name__, self.id)
         ret2 = " {}/{}".format(self.__x, self.__y)
-        ret3 = " = {}/{}".format(self.__width, self.__height)
+        ret3 = " - {}/{}".format(self.__width, self.__height)
         return ret1 + ret2 + ret3
