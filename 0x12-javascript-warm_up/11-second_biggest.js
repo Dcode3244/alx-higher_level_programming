@@ -3,10 +3,8 @@
 if (process.argv.length <= 3) {
   console.log('0');
 } else {
-  const args = [];
-  for (let i = 2; i < process.argv.length; i++) {
-    args.push(Number(process.argv[i]));
-  }
+  let args = process.argv.map(Number);
+  args = args.slice(2);
   args.sort((a, b) => b - a);
   console.log(args[1]);
 }
