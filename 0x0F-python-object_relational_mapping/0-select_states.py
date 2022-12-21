@@ -7,11 +7,9 @@ import MySQLdb
 args = sys.argv
 uname, passwd, db = args[1], args[2], args[3]
 
-db = MySQLdb.connect(host="localhost", port=3306, user=uname,
-                     passwd=passwd, db=db)
-cur = db.cursor()
-
-cur.execute("SELECT * FROM states ORDER BY states.id")
 if __name__ == "__main__":
+    db = MySQLdb.connect(host="localhost", user=uname, passwd=passwd, db=db)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY states.id")
     for state in cur.fetchall():
         print(state)
