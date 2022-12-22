@@ -3,6 +3,7 @@
 Defines a State model.
 Inherits from SQLAlchemy Base and links to the MySQL table states.
 '''
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
