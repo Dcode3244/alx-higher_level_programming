@@ -7,7 +7,8 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    name, passwd, db, search = argv[1], argv[2], argv[3], argv[4]
+    name, passwd, db, search = sys.argv[1], sys.argv[2],\
+            sys.argv[3], sys.argv[4]
     db = MySQLdb.connect(user=name, passwd=passwd, db=db)
     cur = db.cursor()
     cur.execute("SELECT * FROM `cities` as `c` \
