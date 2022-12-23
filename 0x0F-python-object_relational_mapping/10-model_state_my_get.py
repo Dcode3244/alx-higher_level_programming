@@ -20,7 +20,7 @@ if __name__ == "__main__":
     session = Session()
 
     states = session.query(State).filter(State.name.like(argv[4]))
-    if states is not None:
+    if states.first() is not None:
         print(states.first().id)
     else:
         print('Not found')
