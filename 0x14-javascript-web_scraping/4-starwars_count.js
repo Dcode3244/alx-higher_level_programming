@@ -1,19 +1,16 @@
 #!/usr/bin/node
 
 const request = require('request');
-let count = 0;
 
-const callback = (err, response, body) => {
-  if (err) { return console.error(err); }
+const reducer = (count, result) => (
+  result.characters.find((char) => char.endsWith('/18/')) ? ++count : count
+);
+
+const requestCallback = (err, response, body) => {
+  if (err) { console.error(err); }
+
   const results = JSON.parse(body).results;
-  for (const result of results) {
-    for (const character of result.characters) {
-      if (character.includes('/people/18/')) {
-        count++;
-      }
-    }
-  }
-  console.log(count);
+  console.log(results.reduce(reducer, 0));
 };
 
-request(process.argv[2], callback);
+request(process.argv[2], requestCallback);
